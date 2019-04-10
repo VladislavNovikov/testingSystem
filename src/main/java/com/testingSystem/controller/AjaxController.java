@@ -20,6 +20,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Queue;
+import java.util.Stack;
 
 @Controller
 public class AjaxController {
@@ -41,8 +43,7 @@ public class AjaxController {
         this.testImpl = testImpl;
         this.topicImpl = topicImpl;
     }
-
-    @RequestMapping(value = "/DisplayQuestionsFromDb", method = RequestMethod.GET)
+        @RequestMapping(value = "/DisplayQuestionsFromDb", method = RequestMethod.GET)
     @ResponseBody
     public List<Answer> displayQuestionsFromDb(@RequestParam(name = "targetQuestion") String targetQuestion, Model model){
         List<Answer> answerList = answerImpl.getAnswersByQuestionId(questionImpl.getQuestionByDescription(targetQuestion).getQuestionId());

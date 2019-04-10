@@ -2,13 +2,13 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>TableOfUsersForEditing</title>
+    <title>TableOfUsersForWatchingGrid</title>
     <link rel="stylesheet" href="http://localhost:8080/css/stylesForTables.css">
     <link rel="stylesheet" href="http://localhost:8080/css/a_buttons.css">
 </head>
 <body>
 <div align="center">
-    <h1>Таблица для редактирования пользователей</h1>
+    <h1>Выберите пользователя для просмотра его прогресса</h1>
     <table border="1" class="info">
         <th>№</th>
         <th>Фамилия</th>
@@ -25,13 +25,13 @@
                 <td>${user.login}</td>
                 <td>${user.email}</td>
                 <td>
-                    <a class="edit" href="http://localhost:8080/getUserForUpdate?userId=${user.userId}">Редактировать</a>
-                    <a class="delete" href="http://localhost:8080/DeleteUser?userId=${user.userId}">Удалить</a>
+                    <a class="showProgress" href="/tutor/user-for-watching-grid?userId=${user.userId}&userLastName=${user.lastName}&userFirstName=${user.firstName}">Посмотреть прогресс</a>
                 </td>
             </tr>
         </c:forEach>
     </table>
-    <p><a href="http://localhost:8080/html/CreatingAndEditingUsers.html" class="button" title="Вернуться на страицу выбора статистики">Назад</a></p>
+    <p><a href="/tutor/statistics" class="button" title="Вернуться на страицу выбора статистики">Назад</a></p>
 </div>
 </body>
 </html>
+
